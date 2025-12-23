@@ -15,6 +15,9 @@ services:
       - HBOX_OIDC_CLIENT_SECRET=${HBOX_OIDC_CLIENT_SECRET:-}
       - HBOX_OIDC_AUTO_REDIRECT=${HBOX_OIDC_AUTO_REDIRECT:-false}
       - HBOX_OIDC_BUTTON_TEXT=${HBOX_OIDC_BUTTON_TEXT:-OIDC}
+      - HBOX_OIDC_ALLOWED_GROUPS=${HBOX_OIDC_ALLOWED_GROUPS:-}
+      - HBOX_OIDC_SCOPES=${HBOX_OIDC_SCOPES:-openid profile email}
+
     volumes:
       - ${DOCKER_DATA_PATH}/data:/data/
     ports:
