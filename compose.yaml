@@ -1,0 +1,21 @@
+services:
+  homebox:
+    image: ghcr.io/sysadminsmedia/homebox:latest
+    container_name: homebox
+    restart: always
+    environment:
+      - HBOX_LOG_LEVEL=${HBOX_LOG_LEVEL:-info}
+      - HBOX_LOG_FORMAT=${HBOX_LOG_FORMAT:-text}
+      - HBOX_WEB_MAX_FILE_UPLOAD=${HBOX_WEB_MAX_FILE_UPLOAD:-10}
+      # Please consider allowing analytics to help us improve Homebox (basic computer information, no personal data)
+      - HBOX_OPTIONS_ALLOW_ANALYTICS=${HBOX_OPTIONS_ALLOW_ANALYTICS:-true}
+      - HBOX_OIDC_ENABLED=${HBOX_OIDC_ENABLED:-false}
+      - HBOX_OIDC_ISSUER_URL=${HBOX_OIDC_ISSUER_URL:-}
+      - HBOX_OIDC_CLIENT_ID=${HBOX_OIDC_CLIENT_ID:-}
+      - HBOX_OIDC_CLIENT_SECRET=${HBOX_OIDC_CLIENT_SECRET:-}
+      - HBOX_OIDC_AUTO_REDIRECT=${HBOX_OIDC_AUTO_REDIRECT:-false}
+      - HBOX_OIDC_BUTTON_TEXT=${HBOX_OIDC_BUTTON_TEXT:-OIDC}
+    volumes:
+      - ${DOCKER_DATA_PATH}/data:/data/
+    ports:
+      - 3100:7745
