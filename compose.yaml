@@ -21,6 +21,7 @@ services:
       - HBOX_OIDC_ALLOWED_GROUPS=${HBOX_OIDC_ALLOWED_GROUPS:-}
       - HBOX_OIDC_SCOPES=${HBOX_OIDC_SCOPES:-openid profile email}
       - HBOX_OIDC_VERIFY_EMAIL=${HBOX_OIDC_VERIFY_EMAIL:-false}
+      - HBOX_AUTH_API_KEY_PEPPER=${HBOX_AUTH_API_KEY_PEPPER:-}
     volumes:
       - ${DOCKER_DATA_PATH}/data:/data/
     ports:
